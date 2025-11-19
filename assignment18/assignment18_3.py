@@ -9,7 +9,7 @@ dT_of_dz_gt = -13.5
 q0_gt = -k * dT_of_dz_gt
 
 def rel_err(approx, gt=q0_gt):
-    return np.abs((gt - approx)/gt*100)
+    return (gt - approx)/gt*100
 
 def Lagrange_polynomial(x0, x, y, N=4):
     result = 0

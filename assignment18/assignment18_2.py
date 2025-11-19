@@ -13,7 +13,7 @@ def D(h, x):
     return (f(x+h) - f(x-h)) / (2*h)
 
 def rel_err(approx, gt=df_gt):
-    return np.abs((gt - approx)/gt*100)
+    return (gt - approx)/gt*100
 
 D_h1 = D(h1, x0)
 D_h2 = D(h2, x0)

@@ -9,7 +9,7 @@ def f(x):
     return -0.1*x**4 - 0.15*x**3 - 0.5*x**2 - 0.25*x + 1.2
 
 def rel_err(approx, gt=df_gt):
-    return np.abs((gt - approx)/gt*100)
+    return (gt - approx)/gt*100
 
 #Backward
 f_b = (f(x0) - f(x0-h)) / h
