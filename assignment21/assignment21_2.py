@@ -15,7 +15,7 @@ stop_crietrion = 0.10
 P = np.array([[0, 1],
               [1, 0]], dtype=int)
 
-def JacobiMethod(A, b, x_0, e_stop, w=0):
+def Gauss_Seidal(A, b, x_0, e_stop, w=0):
     D = np.diag(A)
     B = D[:, None] - A
 
@@ -26,14 +26,14 @@ def JacobiMethod(A, b, x_0, e_stop, w=0):
     i = 0
     while not np.all(err < e_stop):
         # x_appx = (1-w)*x_prev + w*Jacobi_1_iter(A, b, x_prev)
-        x_appx, err = Jacobi_1_iter(A, b, x_prev, w)
+        x_appx, err = Gauss_Seidal_1_iter(A, b, x_prev, w)
         x_prev = x_appx
         print(f"iter {i}\t x = {x_appx}")
         print(f"\t e = {err}")
         i+= 1
     return x_appx
     
-def Jacobi_1_iter(A, b, x_prev, w):
+def Gauss_Seidal_1_iter(A, b, x_prev, w):
     x_appx = x_prev.copy()
     x_relx = x_prev.copy()
     err = x_prev.copy()
@@ -52,5 +52,5 @@ def Jacobi_1_iter(A, b, x_prev, w):
     return x_relx, err
 
 
-x_appx = JacobiMethod(P@A, P@b, np.array([0,0], dtype=np.float64), stop_crietrion, w = relaxation_factor)
+x_appx = Gauss_Seidal(P@A, P@b, np.array([0,0], dtype=np.float64), stop_crietrion, w = relaxation_factor)
 print(x_appx)
