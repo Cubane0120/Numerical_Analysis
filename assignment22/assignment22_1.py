@@ -2,13 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-
-
 A = np.array([[ 40.0,-20.0, 0.00],
               [-20.0, 40.0,-20.0],
               [ 0.00,-20.0, 40.0]])
-
-
 
 def PowerMethod(A, x_0, num_iter=10):
     print(f"initial\t x = {x_0}")
